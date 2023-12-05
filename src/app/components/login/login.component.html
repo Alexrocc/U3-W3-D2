@@ -1,0 +1,44 @@
+<div class="container">
+  <div class="row justify-content-center mt-5">
+    <div class="col-8">
+      <h1 class="my-5">Login</h1>
+      <form #form="ngForm" (ngSubmit)="submitForm()">
+        <div ngModelGroup="userForm" id="userForm" #userGroup="ngModelGroup">
+          <div class="form-group">
+            <input
+              type="text"
+              id="username"
+              name="username"
+              [ngModel]="userForm.username"
+              class="form-control"
+              required
+              #username="ngModel"
+            />
+            <label for="username">Username</label>
+            <p *ngIf="username.invalid && username.touched">
+              <strong>This field is mandatory</strong>
+            </p>
+          </div>
+          <div class="form-group">
+            <input
+              type="password"
+              id="password"
+              name="password"
+              [ngModel]="userForm.password"
+              class="form-control"
+              required
+              #password="ngModel"
+            />
+            <label for="password">Password</label>
+            <p *ngIf="password.invalid && password.touched">
+              <strong>This field is mandatory</strong>
+            </p>
+          </div>
+          <button type="submit" class="btn btn-primary mt-3" [disabled]="">
+            Login
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
